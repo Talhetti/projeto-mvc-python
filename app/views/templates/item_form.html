@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <h1 class="text-2xl font-bold mb-4">{{ title }}</h1>
+        <form action="{{ url_for('item_controller.save_item', item_id=item.id if item else None) }}" method="POST">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Item Name</label>
+                <input type="text" id="name" name="name" value="{{ item.name if item else '' }}" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+            </div>
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" name="description" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">{{ item.description if item else '' }}</textarea>
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Save Item</button>
+                <a href="{{ url_for('item_controller.list_items') }}" class="ml-2 text-gray-600">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
