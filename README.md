@@ -18,21 +18,21 @@ O sistema inclui um **servidor HTTP nativo** (sem frameworks) que exibe páginas
 
 ## 🗂️ Estrutura de Pastas
 
-projeto-mvc-python/
-│
-├── controller/
-│ └── login_controller.py
-│
-├── model/
-│ ├── database.py
-│ └── usuario_model.py
-│
-├── view/
-│ ├── login.html
-│ ├── dashboard.html
-│ └── style.css
-│
-└── main.py
+projeto-mvc-python/<br>
+│<br>
+├── controller/<br>
+│ └── login_controller.py<br>
+│<br>
+├── model/<br>
+│ ├── database.py<br>
+│ └── usuario_model.py<br>
+│<br>
+├── view/<br>
+│ ├── login.html<br>
+│ ├── dashboard.html<br>
+│ └── style.css<br>
+│<br>
+└── main.py<br>
 
 
 ---
