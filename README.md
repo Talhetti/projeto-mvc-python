@@ -1,76 +1,70 @@
-# My Python MVC App
+# 🧩 Sistema de Login MVC em Python (sem frameworks)
 
-This is a basic CRUD application built using the MVC (Model-View-Controller) architecture in Python. The application includes a login system and allows users to manage items.
+Este projeto é um **sistema de login simples**, desenvolvido em **Python puro** utilizando o **padrão MVC (Model-View-Controller)** e o banco de dados **SQLite**.  
+O sistema inclui um **servidor HTTP nativo** (sem frameworks) que exibe páginas HTML e permite o login via navegador.
 
-## Project Structure
+---
 
-```
-my-python-mvc-app
-├── app
-│   ├── controllers
-│   │   ├── auth_controller.py
-│   │   └── item_controller.py
-│   ├── models
-│   │   ├── user.py
-│   │   └── item.py
-│   ├── views
-│   │   ├── templates
-│   │   │   ├── base.html
-│   │   │   ├── login.html
-│   │   │   ├── items_list.html
-│   │   │   ├── item_detail.html
-│   │   │   └── item_form.html
-│   │   └── static
-│   │       └── styles.css
-│   └── __init__.py
-├── tests
-│   ├── test_auth.py
-│   └── test_items.py
-├── migrations
-│   └── README.md
-├── main.py
-├── config.py
-├── requirements.txt
-└── README.md
-```
+## 🚀 Funcionalidades
 
-## Features
+- Estrutura em **MVC** (Model, View, Controller)  
+- Banco de dados **SQLite** local  
+- Sistema de login funcional com usuário e senha  
+- Servidor web simples com `http.server` (sem Flask/Django)  
+- Redirecionamento automático após o login  
+- Interface básica em **HTML e CSS**  
 
-- User authentication (login/logout)
-- CRUD operations for items
-- Responsive web interface
+---
 
-## Installation
+## 🗂️ Estrutura de Pastas
 
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd my-python-mvc-app
-   ```
+projeto-mvc-python/
+│
+├── controller/
+│ └── login_controller.py
+│
+├── model/
+│ ├── database.py
+│ └── usuario_model.py
+│
+├── view/
+│ ├── login.html
+│ ├── dashboard.html
+│ └── style.css
+│
+└── main.py
 
-2. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
 
-3. Configure the application settings in `config.py`.
+---
 
-## Usage
+## 🧠 Como funciona
 
-To run the application, execute the following command:
-```
-python main.py
-```
+### 🧱 Model (Camada de dados)
+- **database.py** → cria e conecta ao banco `database.db` (SQLite).
+- **usuario_model.py** → contém funções para autenticação e criação de usuários.
 
-Visit `http://localhost:5000` in your web browser to access the application.
+### ⚙️ Controller (Lógica de controle)
+- **login_controller.py** → valida as credenciais e define a navegação.
 
-## Testing
+### 🎨 View (Interface)
+- **login.html** → página de login.
+- **dashboard.html** → página de boas-vindas após login.
+- **style.css** → estilos básicos das páginas.
 
-To run the tests, use:
-```
-pytest
-```
+### 🌐 Servidor (main.py)
+- Usa o módulo `http.server` para servir as páginas HTML.
+- Processa requisições `GET` e `POST` (login).
 
-## License
+---
 
-This project is licensed under the MIT License.
+## 🧩 Banco de Dados
+
+O banco é criado automaticamente ao executar o projeto.
+
+Tabela:
+```sql
+CREATE TABLE usuario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
+);
